@@ -1,4 +1,4 @@
-package sirbasic.agents.attributes;
+package sirbasic.attributes;
 
 public enum SIRState {
     SUSCEPTIBLE,
