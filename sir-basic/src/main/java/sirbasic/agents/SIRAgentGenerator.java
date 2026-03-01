@@ -4,10 +4,14 @@ import modelarium.ModelSettings;
 import modelarium.agents.Agent;
 import modelarium.agents.AgentGenerator;
 import modelarium.attributes.AttributeSetCollection;
+import sirbasic.agents.attributes.location.Coordinates;
+import sirbasic.agents.attributes.location.LocationProperty;
 import sirbasic.agents.attributes.sir.SIRState;
 import sirbasic.agents.attributes.sir.SIRStateProperty;
 import sirbasic.config.ConfigLoader;
 import sirbasic.config.SIRConfig;
+
+import java.util.concurrent.ThreadLocalRandom;
 
 public class SIRAgentGenerator extends AgentGenerator {
     private static int agentCount = 0;
@@ -26,6 +30,17 @@ public class SIRAgentGenerator extends AgentGenerator {
         AttributeSetCollection agentAttributeSetCollection = modelSettings
                 .getBaseAgentAttributeSetCollection()
                 .deepCopy();
+
+        // Randomly set agent's location
+        int xCoordinate = ThreadLocalRandom.current().nextInt(0, sirConfig.environment().width());
+        int yCoordinate = ThreadLocalRandom.current().nextInt(0, sirConfig.environment().height());
+        ((LocationProperty)agentAttributeSetCollection
+                .get("location")
+                .getProperties()
+                .get("location"))
+                .set(new Coordinates(xCoordinate, yCoordinate));
+
+        // Set agent's SIR state
         if (susceptibleAgentCount < sirConfig.initialStates().S()) {
             ((SIRStateProperty)agentAttributeSetCollection
                     .get("sir")
