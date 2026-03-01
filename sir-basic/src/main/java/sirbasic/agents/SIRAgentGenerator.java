@@ -1,11 +1,11 @@
-package sirbasic;
+package sirbasic.agents;
 
 import modelarium.ModelSettings;
 import modelarium.agents.Agent;
 import modelarium.agents.AgentGenerator;
 import modelarium.attributes.AttributeSetCollection;
-import sirbasic.attributes.SIRState;
-import sirbasic.attributes.SIRStateProperty;
+import sirbasic.agents.attributes.sir.SIRState;
+import sirbasic.agents.attributes.sir.SIRStateProperty;
 import sirbasic.config.ConfigLoader;
 import sirbasic.config.SIRConfig;
 
@@ -23,26 +23,28 @@ public class SIRAgentGenerator extends AgentGenerator {
 
     @Override
     protected Agent generateAgent(ModelSettings modelSettings) {
-        AttributeSetCollection agentAttributeSetCollection = modelSettings.getBaseAgentAttributeSetCollection().deepCopy();
+        AttributeSetCollection agentAttributeSetCollection = modelSettings
+                .getBaseAgentAttributeSetCollection()
+                .deepCopy();
         if (susceptibleAgentCount < sirConfig.initialStates().S()) {
             ((SIRStateProperty)agentAttributeSetCollection
-                    .get("sir_attribute_set")
+                    .get("sir")
                     .getProperties()
-                    .get("SIR_state"))
+                    .get("sir_state"))
                     .set(SIRState.SUSCEPTIBLE);
             susceptibleAgentCount++;
         } else if (infectiousAgentCount < sirConfig.initialStates().I()) {
             ((SIRStateProperty)agentAttributeSetCollection
-                    .get("sir_attribute_set")
+                    .get("sir")
                     .getProperties()
-                    .get("SIR_state"))
+                    .get("sir_state"))
                     .set(SIRState.INFECTIOUS);
             infectiousAgentCount++;
         } else if (recoveredAgentCount < sirConfig.initialStates().R()) {
             ((SIRStateProperty)agentAttributeSetCollection
-                    .get("sir_attribute_set")
+                    .get("sir")
                     .getProperties()
-                    .get("SIR_state"))
+                    .get("sir_state"))
                     .set(SIRState.RECOVERED);
             recoveredAgentCount++;
         } else {

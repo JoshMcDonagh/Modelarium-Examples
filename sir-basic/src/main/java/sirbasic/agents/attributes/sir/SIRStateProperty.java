@@ -1,4 +1,4 @@
-package sirbasic.attributes;
+package sirbasic.agents.attributes.sir;
 
 import modelarium.attributes.Property;
 import sirbasic.config.ConfigLoader;
@@ -11,7 +11,7 @@ public class SIRStateProperty extends Property<SIRState> {
     private SIRState state;
 
     public SIRStateProperty() {
-        super("SIR_state", true, SIRState.class);
+        super("sir_state", true, SIRState.class);
         recoveryProbabilityPerTick =
                 ConfigLoader.loadSIRConfig("sir-config.json")
                         .disease()
