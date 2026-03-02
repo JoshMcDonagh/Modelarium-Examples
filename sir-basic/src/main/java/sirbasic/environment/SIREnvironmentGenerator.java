@@ -8,10 +8,10 @@ import sirbasic.config.SIRConfig;
 import sirbasic.environment.attributes.geography.HeightProperty;
 import sirbasic.environment.attributes.geography.WidthProperty;
 
-public class EnvironmentGenerator extends modelarium.environments.EnvironmentGenerator {
+public class SIREnvironmentGenerator extends modelarium.environments.EnvironmentGenerator {
     private final SIRConfig sirConfig;
 
-    public EnvironmentGenerator() {
+    public SIREnvironmentGenerator() {
         sirConfig = ConfigLoader.loadSIRConfig("sir-config.json");
     }
 

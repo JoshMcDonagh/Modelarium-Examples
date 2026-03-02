@@ -1,11 +1,13 @@
 package sirbasic.config;
 
 public record SIRConfig(
+        SIRModelSettings modelSettings,
         InitialStates initialStates,
         Environment environment,
         Movement movement,
         Disease disease
 ) {
+    public record SIRModelSettings(int numOfCores, int numOfTicks, int numOfWarmUpTicks) {}
     public record InitialStates(int S, int I, int R) {}
     public record Environment(int width, int height) {}
     public record Movement(double probabilityPerTick, double contactDistance) {}

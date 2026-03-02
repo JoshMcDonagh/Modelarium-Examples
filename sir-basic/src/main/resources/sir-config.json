@@ -1,4 +1,10 @@
 {
+  "modelSettings": {
+    "numOfCores": 6,
+    "numOfTicks": 1000,
+    "numOfWarmUpTicks": 0
+  },
+
   "initialStates": {
     "S": 990,
     "I": 10,
