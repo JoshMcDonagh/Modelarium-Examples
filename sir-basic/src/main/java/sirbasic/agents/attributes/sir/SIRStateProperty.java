@@ -31,7 +31,7 @@ public class SIRStateProperty extends Property<SIRState> {
     @Override
     public void run() {
         if (state == SIRState.INFECTIOUS
-                && ThreadLocalRandom.current().nextDouble(0.0, 1.0 + Double.MIN_VALUE)
+                && ThreadLocalRandom.current().nextDouble(0.0, 1.0)
                 < recoveryProbabilityPerTick)
             set(SIRState.RECOVERED);
     }

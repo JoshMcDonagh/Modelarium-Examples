@@ -3,28 +3,28 @@ package sirbasic.agents.attributes.location;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Coordinates {
-    private int xCoordinate;
-    private int yCoordinate;
+    private int x;
+    private int y;
 
-    public Coordinates(int xCoordinate, int yCoordinate) {
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+    public Coordinates(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public void setXCoordinate(int xCoordinate) {
-        this.xCoordinate = xCoordinate;
+    public void setX(int xCoordinate) {
+        this.x = xCoordinate;
     }
 
-    public void setYCoordinate(int yCoordinate) {
-        this.yCoordinate = yCoordinate;
+    public void setY(int yCoordinate) {
+        this.y = yCoordinate;
     }
 
-    public int getXCoordinate() {
-        return xCoordinate;
+    public int getX() {
+        return x;
     }
 
-    public int getYCoordinate() {
-        return yCoordinate;
+    public int getY() {
+        return y;
     }
 
     void moveRandomlyBy(int maxDistance, int maxXCoordinate, int maxYCoordinate) {
@@ -39,7 +39,7 @@ public class Coordinates {
             dy = ThreadLocalRandom.current().nextInt(-maxDistance, maxDistance + 1);
         } while (dx == 0 && dy == 0);
 
-        xCoordinate = Math.max(0, Math.min(xCoordinate + dx, maxXCoordinate));
-        yCoordinate = Math.max(0, Math.min(yCoordinate + dy, maxYCoordinate));
+        x = Math.max(0, Math.min(x + dx, maxXCoordinate));
+        y = Math.max(0, Math.min(y + dy, maxYCoordinate));
     }
 }

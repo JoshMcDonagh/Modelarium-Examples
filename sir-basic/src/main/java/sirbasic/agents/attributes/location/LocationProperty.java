@@ -32,7 +32,7 @@ public class LocationProperty extends Property<Coordinates> {
 
     @Override
     public void run() {
-        if (ThreadLocalRandom.current().nextDouble(0.0, 1.0 + Double.MIN_VALUE)
+        if (ThreadLocalRandom.current().nextDouble(0.0, 1.0)
                 < movementProbabilityPerTick) {
             int geographicalAreaWidth =
                     ((WidthProperty)getAssociatedModelElement()
