@@ -49,8 +49,8 @@ public class SIRBasicMain {
         settings.setAreProcessesSynced(true);
         settings.setIsCacheUsed(true);
 
-        settings.setResultsClass(/* TODO: Add results class */);
-        settings.setResults(/* TODO: Add instantiated results object */);
+        settings.setResultsClass(SIRResults.class);
+        settings.setResults(new SIRResults());
 
         settings.setAgentGenerator(new SIRAgentGenerator());
         settings.setEnvironmentGenerator(new SIREnvironmentGenerator());
