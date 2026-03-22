@@ -12,6 +12,7 @@ import sirbasic.config.ConfigLoader;
 import sirbasic.config.SIRConfig;
 import sirbasic.environment.SIREnvironmentGenerator;
 import sirbasic.environment.attributes.geography.GeographyAttributeSet;
+import sirbasic.results.SIRResults;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -37,7 +38,7 @@ public class SIRBasicMain {
         settings.setNumOfAgents(
                 sirConfig.initialStates().S()
                 + sirConfig.initialStates().I()
-                + sirConfig.initialStates().S());
+                + sirConfig.initialStates().R());
 
         settings.setNumOfCores(sirConfig.modelSettings().numOfCores());
         settings.setNumOfTicksToRun(sirConfig.modelSettings().numOfTicks());
@@ -57,5 +58,7 @@ public class SIRBasicMain {
         settings.setModelScheduler(new RandomOrderScheduler());
 
         Results results = new Model(settings).run();
+
+
     }
 }

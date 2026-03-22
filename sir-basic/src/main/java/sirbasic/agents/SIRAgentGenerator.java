@@ -32,8 +32,8 @@ public class SIRAgentGenerator extends AgentGenerator {
                 .deepCopy();
 
         // Randomly set agent's location
-        int xCoordinate = ThreadLocalRandom.current().nextInt(0, sirConfig.environment().width());
-        int yCoordinate = ThreadLocalRandom.current().nextInt(0, sirConfig.environment().height());
+        int xCoordinate = ThreadLocalRandom.current().nextInt(0, sirConfig.environment().area().width());
+        int yCoordinate = ThreadLocalRandom.current().nextInt(0, sirConfig.environment().area().height());
         ((LocationProperty)agentAttributeSetCollection
                 .get("location")
                 .getProperties()

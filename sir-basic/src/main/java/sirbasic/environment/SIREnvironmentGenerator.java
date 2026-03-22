@@ -25,13 +25,13 @@ public class SIREnvironmentGenerator extends modelarium.environments.Environment
                 .get("geography")
                 .getProperties()
                 .get("width"))
-                .set(sirConfig.environment().width());
+                .set(sirConfig.environment().area().width());
 
         ((HeightProperty)environmentAttributeSetCollection
                 .get("geography")
                 .getProperties()
                 .get("height"))
-                .set(sirConfig.environment().height());
+                .set(sirConfig.environment().area().height());
 
         return new Environment("Environment", environmentAttributeSetCollection);
     }

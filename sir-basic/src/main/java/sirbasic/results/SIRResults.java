@@ -1,4 +1,4 @@
-package sirbasic;
+package sirbasic.results;
 
 import modelarium.results.Results;
 import sirbasic.agents.attributes.sir.SIRState;
