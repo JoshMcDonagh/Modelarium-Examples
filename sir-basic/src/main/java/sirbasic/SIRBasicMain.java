@@ -12,6 +12,7 @@ import sirbasic.config.ConfigLoader;
 import sirbasic.config.SIRConfig;
 import sirbasic.environment.SIREnvironmentGenerator;
 import sirbasic.environment.attributes.geography.GeographyAttributeSet;
+import sirbasic.results.ResultsExporter;
 import sirbasic.results.SIRResults;
 
 import java.lang.reflect.InvocationTargetException;
@@ -59,6 +60,9 @@ public class SIRBasicMain {
 
         Results results = new Model(settings).run();
 
+        String timestamp = java.time.LocalDateTime
+                .now().format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
 
+        ResultsExporter.export(results, "results/run-" + timestamp);
     }
 }
